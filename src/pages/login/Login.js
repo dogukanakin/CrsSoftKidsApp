@@ -5,16 +5,14 @@ import { auth, provider } from '../../firebase'
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 import { AuthContext } from './../../context/AuthContext'
 
-const Login = () => {
+const LoginTry = () => {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
     rememberMe: false
   })
-  const [toggleEye, setToggleEye] = useState(false)
   const [inputType, setInputType] = useState('password')
   const navigate = useNavigate()
-  const [resetEmailSent, setResetEmailSent] = useState(false)
 
   const { dispatch } = useContext(AuthContext)
 
@@ -78,68 +76,110 @@ const Login = () => {
       })
   }
 
-  const handleForgotPassword = async e => {
-    e.preventDefault()
-
-    try {
-      await auth.sendPasswordResetEmail(inputs.email)
-      setResetEmailSent(true)
-    } catch (error) {
-      console.log(error)
-      // Handle error if password reset email failed to send
-    }
-  }
-
   return (
-    <div className='login'>
-      <form>
-        <h2>Login</h2>
-        <div className='formInput'>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            placeholder='Email'
-            value={inputs.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type={inputType}
-            name='password'
-            id='password'
-            placeholder='Password'
-            value={inputs.password}
-            onChange={handleChange}
-            required
-          />
+    <body>
+      <div className='login-container'>
+        <div className='login-section'>
+          <div className='logo-section'>
+            <div className='logo-container'>
+              <a href='#' className='logo'>
+                <img
+                  src='https://media.licdn.com/dms/image/D4D0BAQH7GOIcMFJG0w/company-logo_200_200/0/1681714294907?e=1694044800&v=beta&t=uPihArS-gNwWOa9ZFqrngl4qqD1flGnvl5OXYaO6nUM'
+                  alt='Logo'
+                />
+              </a>
+            </div>
+
+            <div className='form-section'>
+              <p className='welcome-text'>Welcome.</p>
+              <form
+                className='login-form'
+                onSubmit={event => event.preventDefault()}
+              >
+                <div className='form-field'>
+                  <label htmlFor='email' className='label-text'>
+                    Email
+                  </label>
+                  <input
+                    type='email'
+                    name='email'
+                    id='email'
+                    placeholder='Email'
+                    value={inputs.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className='form-field'>
+                  <label htmlFor='password' className='label-text'>
+                    Password
+                  </label>
+                  <input
+                    type={inputType}
+                    name='password'
+                    id='password'
+                    placeholder='Password'
+                    value={inputs.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className='rememberMe'>
+                  <input
+                    type='checkbox'
+                    id='rememberMe'
+                    name='rememberMe'
+                    checked={inputs.rememberMe}
+                    onChange={handleRememberMe}
+                  />
+                  <label htmlFor='rememberMeLabel'>Remember Me</label>
+                </div>
+
+                <button
+                  onClick={handleLogin}
+                  type='submit'
+                  value='Log In'
+                  className='login-button'
+                >
+                  Log In
+                </button>
+
+                <button
+                  type='button'
+                  value='Log In with Google'
+                  className='login-button'
+                  onClick={signInWithGoogle}
+                >
+                  Log In with Google
+                </button>
+              </form>
+              <p className='register-text'>
+                Don't have an account?{' '}
+                <Link to='/register' className='register-link'>
+                  Register
+                </Link>
+              </p>
+              <p className='forgot-password-text'>
+                Forgot your password?{' '}
+                <Link to='/forgot-password' className='forgot-password-link'>
+                  Reset Password
+                </Link>
+              </p>
+            </div>
+          </div>
+
+          <div className='image-section'>
+            <img
+              className='background-image'
+              src='https://e0.pxfuel.com/wallpapers/981/600/desktop-wallpaper-purple-and-blue-pattern-purple-blue-and-green.jpg'
+              alt='Background'
+            />
+          </div>
         </div>
-
-        <div className='rememberMe'>
-          <input
-            type='checkbox'
-            id='rememberMe'
-            name='rememberMe'
-            checked={inputs.rememberMe}
-            onChange={handleRememberMe}
-          />
-          <label htmlFor='rememberMe'>Remember Me</label>
-        </div>
-
-        <button onClick={handleLogin} type='submit'>
-          Login
-        </button>
-
-        <div className='forgotPassword'>
-          <Link to='/forgot-password'>Forgot Password?</Link>
-        </div>
-
-        <p className='haveacc'>
-          Don't have an account? <Link to='/register'>Register</Link>
-        </p>
-      </form>
-    </div>
+      </div>
+    </body>
   )
 }
 
-export default Login
+export default LoginTry

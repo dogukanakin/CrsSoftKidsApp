@@ -2,20 +2,15 @@ import React from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
 import AboutUs from '../../components/aboutUs/AboutUs'
-import './home.scss'
 
-const Home = () => {
+const MainPage = () => {
   return (
     <div className='home'>
-      <>
-        <Navbar />
-        <div className='homeContainer'>
-          <AboutUs />
-        </div>
-        <Footer />
-      </>
+      <Navbar />
+      <AboutUs />
+      <Footer />
     </div>
   )
 }
 
-export default Home
+export default MainPage

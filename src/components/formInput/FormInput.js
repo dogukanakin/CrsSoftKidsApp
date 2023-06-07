@@ -9,6 +9,9 @@ const FormInput = props => {
   }
   return (
     <div className='formInput'>
+      <label className='label-text' htmlFor={id}>
+        {inputProps.placeholder}{' '}
+      </label>
       <input
         {...inputProps}
         onChange={onChange}

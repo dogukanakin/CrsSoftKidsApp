@@ -52,7 +52,7 @@ const Register = () => {
     },
     {
       id: 4,
-      name: 'confirmPassword',
+      name: 'Confirm Password',
       type: 'text',
       placeholder: 'Confirm Password',
       errorMessage: "Passwords don't match",
@@ -67,6 +67,22 @@ const Register = () => {
 
   const handleRegister = async e => {
     e.preventDefault()
+
+    // if (inputValues.password === inputValues.email) {
+    //   window.alert('Password should not be the same as email')
+    //   return
+    // }
+
+    // if is empty inputs
+
+    if (
+      inputValues.email === '' ||
+      inputValues.password === '' ||
+      inputValues.username === '' ||
+      inputValues.confirmPassword === ''
+    ) {
+      window.alert('Please fill all the fields')
+    }
 
     try {
       await createUserWithEmailAndPassword(
@@ -84,50 +100,59 @@ const Register = () => {
     } catch (error) {}
   }
 
-  const signInWithGoogle = () => {
-    dispatch({ type: 'LOGIN_START' })
-
-    signInWithPopup(auth, provider)
-      .then(result => {
-        console.log(result)
-        // The signed-in user info.
-        const user = result.user
-        dispatch({ type: 'LOGIN_SUCCESS', payload: user })
-        navigate('/')
-      })
-      .catch(error => {
-        dispatch({ type: 'LOGIN_FAILURE' })
-      })
-  }
-
   return (
-    <div className='register'>
-      <form>
-        <h2>Register</h2>
-        {inputs.map(input => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={inputValues[input.name]}
-            onChange={handleChange}
-          />
-        ))}
-        <button onClick={handleRegister} type='submit'>
-          Register
-        </button>
+    <body>
+      <div className='register-container'>
+        <div className='register-section'>
+          <div className='logo-section'>
+            <div className='logo-container'>
+              <a href='#' className='logo'>
+                <img
+                  src='https://media.licdn.com/dms/image/D4D0BAQH7GOIcMFJG0w/company-logo_200_200/0/1681714294907?e=1694044800&v=beta&t=uPihArS-gNwWOa9ZFqrngl4qqD1flGnvl5OXYaO6nUM'
+                  alt='Logo'
+                />
+              </a>
+            </div>
 
-        <Link to='/'>
-          {' '}
-          {/* Specify the target URL for the link */}
-          <button onClick={signInWithGoogle}>Sign up with Google</button>
-        </Link>
-        <div className='line'>
-          <p className='haveacc'>
-            Already have an account? <Link to='/login'>Login</Link>
-          </p>
+            <div className='form-section'>
+              <p className='welcome-text'>Welcome.</p>
+              <form
+                className='register-form'
+                onSubmit={event => event.preventDefault()}
+              >
+                <div className='form-field'>
+                  {inputs.map(input => (
+                    <FormInput
+                      key={input.id}
+                      {...input}
+                      value={inputValues[input.name]}
+                      onChange={handleChange}
+                    />
+                  ))}
+                  <button onClick={handleRegister} type='login-button'>
+                    Register
+                  </button>
+                  <p>
+                    Go back to{' '}
+                    <Link to='/login' className='register-link'>
+                      Login Page
+                    </Link>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div className='image-section'>
+            <img
+              className='background-image'
+              src='https://e0.pxfuel.com/wallpapers/981/600/desktop-wallpaper-purple-and-blue-pattern-purple-blue-and-green.jpg'
+              alt='Background'
+            />
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </body>
   )
 }
 
