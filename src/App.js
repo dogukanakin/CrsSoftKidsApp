@@ -11,7 +11,7 @@ import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import NotFoundPage from './pages/notFoundPage/NotFoundPage'
 import ForgotPassword from './pages/forgotPassword/ForgotPassword'
-import MainPage from './pages/updatePage/MainPage'
+import MainPage from './pages/aboutPage/MainPage'
 import Table from './pages/table/Table'
 import './App.css'
 
