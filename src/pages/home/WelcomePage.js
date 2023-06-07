@@ -24,8 +24,9 @@ const WelcomePage = () => {
           <div className='courses'>
             <h1>Projects</h1>
             <p>
-              Crs Kids allows you to add, edit, and delete courses. You can also
-              view all of the courses in a convenient table format.
+              Crs Kids streamlines course management with easy course addition,
+              editing, deletion, and a user-friendly table view for efficient
+              tracking.
             </p>
             <img
               src='https://www.educationalappstore.com/images/best-coding-apps-for-kids.jpg'

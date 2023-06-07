@@ -24,7 +24,8 @@
     font-weight: 400;
   }
   input {
-    padding: 10px;
+    width: 40%;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -32,8 +33,9 @@
     margin-bottom: 1rem;
     outline: none;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-    margin-left: 5rem;
+    margin-left: 30rem;
+    margin-right: 30rem;
+    box-sizing: border-box;
   }
 
   h1 {

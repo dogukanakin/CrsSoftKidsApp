@@ -53,52 +53,54 @@ const Table = () => {
   }
 
   return (
-    <div className='table'>
+    <div>
       <Navbar />
-      <div className='fullSize'>
-        <h1>Contact Table</h1>
+      <div className='table'>
+        <div className='fullSize'>
+          <h1>Contact Table</h1>
 
-        <input
-          onChange={handleChange}
-          value={userName}
-          type='text'
-          placeholder='Username'
-          disabled
-        />
+          <input
+            onChange={handleChange}
+            value={userName}
+            type='text'
+            placeholder='Username'
+            disabled
+          />
 
-        <input
-          onChange={handleChange}
-          value={email}
-          type='email'
-          placeholder='Email'
-          disabled
-        />
+          <input
+            onChange={handleChange}
+            value={email}
+            type='email'
+            placeholder='Email'
+            disabled
+          />
 
-        <input
-          onChange={e => setAddress(e.target.value)}
-          value={address}
-          type='text'
-          placeholder='Address'
-        />
+          <input
+            onChange={e => setAddress(e.target.value)}
+            value={address}
+            type='text'
+            placeholder='Address'
+          />
 
-        <input
-          onChange={e => setPhoneNumber(e.target.value)}
-          value={phoneNumber}
-          type='number'
-          placeholder='Phone Number'
-        />
+          <input
+            onChange={e => setPhoneNumber(e.target.value)}
+            value={phoneNumber}
+            type='number'
+            placeholder='Phone Number'
+          />
 
-        <button className='submit' onClick={writeToDatabase}>
-          Submit
-        </button>
-        <br />
-        <br />
+          <button className='submit' onClick={writeToDatabase}>
+            Submit
+          </button>
+          <br />
+          <br />
 
-        {/* Render the BasicTable component */}
-        <BasicTable />
+          {/* Render the BasicTable component */}
+          <BasicTable />
+        </div>
+
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   )
 }

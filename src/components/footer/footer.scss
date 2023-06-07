@@ -14,8 +14,12 @@
 }
 
 .footer address {
+  display: flex;
+  flex-flow: column wrap;
   font-style: normal;
   color: #c7c5c5;
+  list-style: none;
+  text-decoration: none;
 }
 .legal {
   display: flex;
@@ -88,6 +92,7 @@
   align-items: center;
   width: 100%;
   max-width: 400px;
+  list-style: none;
 
   @media (max-width: 768px) {
     display: none;
