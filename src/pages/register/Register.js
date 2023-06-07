@@ -141,7 +141,7 @@ const Register = () => {
                     />
                   ))}
                   {passwordError && (
-                    <p className='error-message'>{passwordError}</p>
+                    <p className='error-message'>{passwordError}...</p>
                   )}
                   <button onClick={handleRegister} type='login-button'>
                     Register
