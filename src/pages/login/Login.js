@@ -72,6 +72,9 @@ const LoginTry = () => {
       .then(result => {
         console.log(result)
         const user = result.user
+        // Generate a random username
+        const randomUsername = Math.floor(Math.random() * 100000)
+        user.displayName = `${randomUsername}`
         dispatch({ type: 'LOGIN_SUCCESS', payload: user })
         navigate('/')
       })

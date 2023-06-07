@@ -28,11 +28,11 @@ const WelcomePage = () => {
               view all of the courses in a convenient table format.
             </p>
             <img
-              src='https://images01.nicepagecdn.com/page/20/52/website-builder-software-preview-205257.jpg'
+              src='https://www.educationalappstore.com/images/best-coding-apps-for-kids.jpg'
               alt='Manage Courses'
               className='coursesImg'
             />
-            <button className='coursesButton'>Manage Courses</button>
+            <button className='coursesButton'>Manage Project</button>
           </div>
         </div>
 
@@ -44,11 +44,11 @@ const WelcomePage = () => {
               view all of the courses in a convenient table format.
             </p>
             <img
-              src='https://www.educationalappstore.com/images/best-coding-apps-for-kids.jpg'
+              src='https://images01.nicepagecdn.com/page/20/52/website-builder-software-preview-205257.jpg'
               alt='Manage Courses'
               className='coursesImg'
             />
-            <button className='coursesButton'>Manage Projects</button>
+            <button className='coursesButton'>Manage Courses</button>
           </div>
         </div>
       </div>

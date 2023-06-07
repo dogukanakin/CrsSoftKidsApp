@@ -27,7 +27,7 @@ const Navbar = () => {
             className='navbar__logo-img'
             alt='Crs Logo'
           />
-          <span className='navbar__logo-text'>Crs Soft</span>
+          <span className='navbar__logo-text'>Crs Soft Kids</span>
         </a>
       </div>
 
