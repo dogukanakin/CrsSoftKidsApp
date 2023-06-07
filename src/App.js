@@ -29,6 +29,7 @@ function App () {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='*' element={<NotFoundPage />} />{' '}
           <Route
             path='/'
             element={
@@ -53,7 +54,6 @@ function App () {
               </AuthRoute>
             }
           />
-          <Route path='*' element={<NotFoundPage />} />{' '}
         </Routes>
       </Router>
     </div>

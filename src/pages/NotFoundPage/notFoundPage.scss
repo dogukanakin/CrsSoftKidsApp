@@ -1,34 +1,42 @@
 .notFoundPage {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  width: 100%;
-  background-color: #4070f4;
-  color: white;
-  font-size: 50px;
-  font-weight: bold;
+  background-color: #f8f8f8;
+}
+
+.content {
   text-align: center;
-  h1 {
-    font-size: 50px;
-    font-weight: bold;
-    color: #232836;
-    text-align: center;
-  }
-  h2 {
-    font-size: 30px;
-    font-weight: bold;
-    color: #232836;
-    text-align: center;
-  }
-  .link {
-    text-decoration: none;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    &:hover {
-      color: #232836;
-    }
-  }
+}
+
+.title {
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #777;
+}
+
+.link {
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.link:hover {
+  color: #555;
 }
