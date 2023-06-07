@@ -17,10 +17,12 @@ const LoginTry = () => {
   const { dispatch } = useContext(AuthContext)
 
   useEffect(() => {
+    // Retrieve stored email and password from localStorage
     const storedEmail = localStorage.getItem('rememberedEmail')
     const storedPassword = localStorage.getItem('rememberedPassword')
 
     if (storedEmail && storedPassword) {
+      // If stored email and password exist, populate the inputs state and set rememberMe to true
       setInputs(prev => ({
         ...prev,
         email: storedEmail,
@@ -43,14 +45,17 @@ const LoginTry = () => {
     dispatch({ type: 'LOGIN_START' })
 
     try {
+      // Perform login with email and password
       await signInWithEmailAndPassword(auth, inputs.email, inputs.password)
       const user = auth.currentUser
       dispatch({ type: 'LOGIN_SUCCESS', payload: user })
       navigate('/')
       if (inputs.rememberMe) {
+        // Store email and password in localStorage if rememberMe is checked
         localStorage.setItem('rememberedEmail', inputs.email)
         localStorage.setItem('rememberedPassword', inputs.password)
       } else {
+        // Remove stored email and password from localStorage if rememberMe is unchecked
         localStorage.removeItem('rememberedEmail')
         localStorage.removeItem('rememberedPassword')
       }
@@ -66,7 +71,6 @@ const LoginTry = () => {
     signInWithPopup(auth, provider)
       .then(result => {
         console.log(result)
-        // The signed-in user info.
         const user = result.user
         dispatch({ type: 'LOGIN_SUCCESS', payload: user })
         navigate('/')
@@ -125,6 +129,7 @@ const LoginTry = () => {
                     required
                   />
                 </div>
+
                 <div className='rememberMe'>
                   <input
                     type='checkbox'
@@ -154,12 +159,14 @@ const LoginTry = () => {
                   Log In with Google
                 </button>
               </form>
+
               <p className='register-text'>
                 Don't have an account?{' '}
                 <Link to='/register' className='register-link'>
                   Register
                 </Link>
               </p>
+
               <p className='forgot-password-text'>
                 Forgot your password?{' '}
                 <Link to='/forgot-password' className='forgot-password-link'>

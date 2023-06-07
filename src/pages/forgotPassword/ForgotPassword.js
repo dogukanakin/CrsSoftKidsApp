@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
 import './forgotPassword.scss'
 import { useNavigate } from 'react-router-dom'
@@ -13,6 +14,7 @@ const ForgotPassword = () => {
     e.preventDefault()
 
     if (!email) {
+      // Display error message if email is empty
       setErrorMessage('Please enter your email address')
       return
     }
@@ -20,7 +22,6 @@ const ForgotPassword = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
         // Password reset email sent!
-        // ..
         navigate('/login')
       })
       .catch(error => {
@@ -52,6 +53,7 @@ const ForgotPassword = () => {
             onChange={e => setEmail(e.target.value)}
             required
           />
+          {/* Display error message if exists */}
           {errorMessage && <p className='error'>{errorMessage}</p>}
 
           <button
@@ -61,8 +63,11 @@ const ForgotPassword = () => {
           >
             Send Recovery Email
           </button>
+
           <p className='formLink'>
-            <a href='/login'>Back to Login</a>
+            <a className='loginBackLink' href='/login'>
+              Back to Login
+            </a>
           </p>
         </div>
       </form>

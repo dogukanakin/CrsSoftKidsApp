@@ -35,7 +35,7 @@ const Register = () => {
     {
       id: 2,
       name: 'email',
-      type: 'Email',
+      type: 'email',
       placeholder: 'Email',
       errorMessage: 'It should be a valid email address',
       required: true
@@ -43,7 +43,7 @@ const Register = () => {
     {
       id: 3,
       name: 'password',
-      type: 'text',
+      type: 'password',
       placeholder: 'Password',
       errorMessage:
         'Password should be 8-20 characters and include at least 1 letter, 1 number, 1 special character',
@@ -53,7 +53,7 @@ const Register = () => {
     {
       id: 4,
       name: 'Confirm Password',
-      type: 'text',
+      type: 'password',
       placeholder: 'Confirm Password',
       errorMessage: "Passwords don't match",
       pattern: inputValues.password,
@@ -68,20 +68,14 @@ const Register = () => {
   const handleRegister = async e => {
     e.preventDefault()
 
-    // if (inputValues.password === inputValues.email) {
-    //   window.alert('Password should not be the same as email')
-    //   return
-    // }
-
-    // if is empty inputs
-
     if (
       inputValues.email === '' ||
       inputValues.password === '' ||
-      inputValues.username === '' ||
-      inputValues.confirmPassword === ''
+      inputValues.username === ''
     ) {
       window.alert('Please fill all the fields')
+    } else {
+      // Handle registration logic here if needed
     }
 
     try {
@@ -97,7 +91,12 @@ const Register = () => {
         })
         navigate('/login')
       })
-    } catch (error) {}
+    } catch (error) {
+      // Handle Errors here.
+      const errorCode = error.code
+      const errorMessage = error.message
+      console.log(errorCode, errorMessage)
+    }
   }
 
   return (
@@ -121,6 +120,7 @@ const Register = () => {
                 onSubmit={event => event.preventDefault()}
               >
                 <div className='form-field'>
+                  {/* Render input fields */}
                   {inputs.map(input => (
                     <FormInput
                       key={input.id}

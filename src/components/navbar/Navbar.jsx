@@ -9,13 +9,11 @@ const Navbar = () => {
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState(false)
 
-  const handleMenu = () => {
-    setShowMenu(!showMenu)
-  }
-
   const handleLogout = () => {
+    // Confirm logout with a confirmation dialog
     const confirmLogout = window.confirm('Are you sure you want to log out?')
     if (confirmLogout) {
+      // Dispatch the logout action and navigate to the login page
       dispatch({ type: 'LOGOUT' })
       navigate('/login')
     }

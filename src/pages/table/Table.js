@@ -11,13 +11,15 @@ import Footer from './../../components/footer/Footer'
 const Table = () => {
   const { currentUser } = useContext(AuthContext)
 
+  // Define state variables for input fields
   const [userName, setUserName] = useState(currentUser.displayName)
   const [email, setEmail] = useState(currentUser.email)
   const [address, setAddress] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
 
   const handleChange = e => {
-    // Prevent changing the username and email values
+    e.preventDefault()
+    // Handle input field changes here if needed
   }
 
   console.log(userName)
@@ -31,8 +33,9 @@ const Table = () => {
       return
     }
 
-    const newTodoRef = push(ref(db)) // Generate a unique key with push()
-    const newTodoKey = newTodoRef.key // Get the generated key
+    // Push new data to the Firebase Realtime Database
+    const newTodoRef = push(ref(db))
+    const newTodoKey = newTodoRef.key
 
     set(ref(db, `/${newTodoKey}`), {
       username: userName,
@@ -42,11 +45,9 @@ const Table = () => {
       uuid: newTodoKey
     })
 
-    // Prevent changing the username and email values
-    setUserName(currentUser.displayName) // Update the username when the function is called
-    setEmail(currentUser.email) // Update the email when the function is called
-
-    // Reset the additional fields
+    // Reset the input fields after writing to the database
+    setUserName(currentUser.displayName)
+    setEmail(currentUser.email)
     setAddress('')
     setPhoneNumber('')
   }
@@ -56,6 +57,7 @@ const Table = () => {
       <Navbar />
       <div className='fullSize'>
         <h1>Contact Table</h1>
+
         <input
           onChange={handleChange}
           value={userName}
@@ -82,7 +84,7 @@ const Table = () => {
         <input
           onChange={e => setPhoneNumber(e.target.value)}
           value={phoneNumber}
-          type='tel'
+          type='number'
           placeholder='Phone Number'
         />
 
@@ -91,6 +93,8 @@ const Table = () => {
         </button>
         <br />
         <br />
+
+        {/* Render the BasicTable component */}
         <BasicTable />
       </div>
 

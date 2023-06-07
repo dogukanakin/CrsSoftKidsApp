@@ -27,12 +27,11 @@ const AddDataForm = () => {
 
   const writeToDatabase = () => {
     if (address === '' || phoneNumber === '') {
-      // Display an error message or prevent submission
       return
     }
 
-    const newTodoRef = push(ref(db)) // Generate a unique key with push()
-    const newTodoKey = newTodoRef.key // Get the generated key
+    const newTodoRef = push(ref(db))
+    const newTodoKey = newTodoRef.key
 
     set(ref(db, `/${newTodoKey}`), {
       username: userName,
@@ -42,11 +41,9 @@ const AddDataForm = () => {
       uuid: newTodoKey
     })
 
-    // Prevent changing the username and email values
-    setUserName(currentUser.displayName) // Update the username when the function is called
-    setEmail(currentUser.email) // Update the email when the function is called
+    setUserName(currentUser.displayName)
+    setEmail(currentUser.email)
 
-    // Reset the additional fields
     setAddress('')
     setPhoneNumber('')
   }
@@ -80,7 +77,7 @@ const AddDataForm = () => {
       <input
         onChange={e => setPhoneNumber(e.target.value)}
         value={phoneNumber}
-        type='tel'
+        type='number'
         placeholder='Phone Number'
       />
 

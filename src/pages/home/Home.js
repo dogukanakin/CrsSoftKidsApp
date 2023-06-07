@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
-import AboutUs from '../../components/aboutUs/AboutUs'
+import WelcomePage from './WelcomePage'
 import './home.scss'
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
       <>
         <Navbar />
         <div className='homeContainer'>
-          <AboutUs />
+          <WelcomePage />
         </div>
         <Footer />
       </>
