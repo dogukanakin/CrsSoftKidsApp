@@ -4,11 +4,6 @@ import './welcomePage.scss'
 const WelcomePage = () => {
   return (
     <div className='welcomePage'>
-      <img
-        src='https://media.licdn.com/dms/image/D4D0BAQH7GOIcMFJG0w/company-logo_200_200/0/1681714294907?e=1694044800&v=beta&t=uPihArS-gNwWOa9ZFqrngl4qqD1flGnvl5OXYaO6nUM'
-        alt='About Us'
-        className='aboutUsImg'
-      />
       <div className='about'>
         <div className='text'>
           <h1>Welcome to Crs Kids</h1>
@@ -21,6 +16,40 @@ const WelcomePage = () => {
             students' grades in a convenient table format, making it easy to
             track their progress.
           </p>
+        </div>
+      </div>
+
+      <div className='squareContainer'>
+        <div className='coursesSquareLeft'>
+          <div className='courses'>
+            <h1>Projects</h1>
+            <p>
+              Crs Kids allows you to add, edit, and delete courses. You can also
+              view all of the courses in a convenient table format.
+            </p>
+            <img
+              src='https://images01.nicepagecdn.com/page/20/52/website-builder-software-preview-205257.jpg'
+              alt='Manage Courses'
+              className='coursesImg'
+            />
+            <button className='coursesButton'>Manage Courses</button>
+          </div>
+        </div>
+
+        <div className='projectsSquareRight'>
+          <div className='projects'>
+            <h1> Courses</h1>
+            <p>
+              Crs Kids allows you to add, edit, and delete courses. You can also
+              view all of the courses in a convenient table format.
+            </p>
+            <img
+              src='https://www.educationalappstore.com/images/best-coding-apps-for-kids.jpg'
+              alt='Manage Courses'
+              className='coursesImg'
+            />
+            <button className='coursesButton'>Manage Projects</button>
+          </div>
         </div>
       </div>
     </div>

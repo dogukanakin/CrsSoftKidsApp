@@ -12,6 +12,114 @@
     padding: 90px 0;
     background: #ddd;
   }
+  .squareContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-bottom: 5rem;
+  }
+  .projectsSquareRight,
+  .coursesSquareLeft {
+    flex-basis: calc(
+      40% - 40px
+    ); /* Adjust the flex-basis and margin values as needed */
+    margin-bottom: 20px;
+    aspect-ratio: 2/1;
+  }
+
+  .projectsSquareRight {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 90px 0;
+    border: 3px solid gray;
+
+    .courses {
+      width: 400px; /* Adjust the width to your desired size */
+      height: auto;
+      margin-top: 20px; /* Adjust the margin-top value as needed */
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: 800;
+      text-align: center;
+    }
+    p {
+      font-size: 18px;
+      line-height: 25px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    img {
+      width: 400px; /* Adjust the width to your desired size */
+      height: auto;
+      margin-top: 20px; /* Adjust the margin-top value as needed */
+      border-radius: 20%;
+      margin: 3rem;
+    }
+    button {
+      background-color: #000000;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.6rem;
+      padding: 0.5rem 1rem;
+      margin-left: 7rem;
+      margin-top: 1.6rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      background-color: #4b5563;
+      border-radius: 0.25rem;
+      &:hover {
+        background-color: #000000;
+      }
+    }
+  }
+
+  .coursesSquareLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 90px 0;
+    border: 3px solid gray;
+
+    h1 {
+      font-size: 40px;
+      font-weight: 800;
+      text-align: center;
+    }
+    p {
+      font-size: 18px;
+      line-height: 25px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    img {
+      width: 400px; /* Adjust the width to your desired size */
+      height: auto;
+      margin-top: 20px; /* Adjust the margin-top value as needed */
+      border-radius: 20%;
+      margin: 3rem;
+    }
+    button {
+      background-color: #000000;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.6rem;
+      padding: 0.5rem 1rem;
+      margin-left: 7rem;
+      margin-top: 1.6rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      background-color: #4b5563;
+      border-radius: 0.25rem;
+      &:hover {
+        background-color: #000000;
+      }
+    }
+  }
 
   .about {
     width: 1130px;
