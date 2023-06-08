@@ -21,10 +21,6 @@ const Register = () => {
     address: ''
   })
   const navigate = useNavigate()
-  const passwordPattern =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
-
-  const [passwordError, setPasswordError] = useState('')
   const inputs = [
     {
       id: 1,
@@ -64,6 +60,7 @@ const Register = () => {
       required: true
     }
   ]
+
   const handleChange = e => {
     setInputValues({ ...inputValues, [e.target.name]: e.target.value })
   }
@@ -78,14 +75,6 @@ const Register = () => {
     ) {
       window.alert('Please fill all the fields')
     } else {
-      if (!passwordPattern.test(inputValues.password)) {
-        setPasswordError(
-          'Password should be 8-20 characters and include at least 1 letter, 1 number, 1 special character'
-        )
-        return
-      } else {
-        setPasswordError('')
-      }
       // Handle registration logic here if needed
     }
 
@@ -95,7 +84,7 @@ const Register = () => {
         inputValues.email,
         inputValues.password
       ).then(userCredential => {
-        // Signed in
+        // Signed inn
         const user = userCredential.user
         updateProfile(user, {
           displayName: inputValues.username
@@ -140,9 +129,6 @@ const Register = () => {
                       onChange={handleChange}
                     />
                   ))}
-                  {passwordError && (
-                    <p className='error-message'>{passwordError}...</p>
-                  )}
                   <button onClick={handleRegister} type='login-button'>
                     Register
                   </button>
